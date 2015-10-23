@@ -100,3 +100,34 @@ INSERT INTO `aircraft` (`nNumber`, `make`, `model`, `airlineId`) VALUES ('N03459
 INSERT INTO `aircraft` (`nNumber`, `make`, `model`, `airlineId`) VALUES ('N01999', 'Airbus', 'A330-200', 'hawaiian');
 INSERT INTO `aircraft` (`nNumber`, `make`, `model`, `airlineId`) VALUES ('N01997', 'Airbus', 'A330-200', 'hawaiian');
 INSERT INTO `aircraft` (`nNumber`, `make`, `model`, `airlineId`) VALUES ('N01909', 'Airbus', 'A339-200', 'hawaiian');
+
+
+CREATE TABLE IF NOT EXISTS `gate` (
+  `gate` VARCHAR(8) NOT NULL COMMENT 'The gate within terminal',
+  `terminal` VARCHAR(25) NOT NULL COMMENT 'Termainal in airport',
+  UNIQUE INDEX `gate_UNIQUE` (`gate` ASC),
+  PRIMARY KEY (`gate`))
+ENGINE = InnoDB;
+
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('1', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('2', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('3A', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('4A', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('4B', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('5', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('6', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('7', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('8A', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('8B', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('9', '1');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('21A', '2');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('22A', '2');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('23', '2');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('24C', '2');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('25', '2');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('31A', '3');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('32', '3');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('33', '3');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('34', '3');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35A', '3');
+INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35B', '3');
