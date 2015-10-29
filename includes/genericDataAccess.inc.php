@@ -13,7 +13,7 @@ include_once "conn.inc.php";
  */
 function fetchAllRecords($sql, $namedParameters = array()) {
 		
-	$conn = createConn();
+	$conn = createMySqlConn();
 
 	//Prepare the sql and execute the statment
 	$query = $conn -> prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
@@ -31,7 +31,7 @@ function fetchAllRecords($sql, $namedParameters = array()) {
  */
 function fetchRecord($sql, $namedParameters = array()) {
 		
-	$conn = createConn();
+	$conn = createMySqlConn();
 
 	//Prepare the sql and execute the statment
 	$query = $conn -> prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
