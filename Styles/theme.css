@@ -12,13 +12,13 @@ body{
   }
 
   /*Displays all elements inside nav on single line*/
-  nav h3, nav ul li{
+  nav h3, nav ul, nav ul li{
     display: inline;
   }
 
   /*Centers vertical alignment of header*/
   nav h3{
-    line-height: 50px;
+    float: left;
   }
 
   /*pulls navigation on to hand side*/

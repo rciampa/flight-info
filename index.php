@@ -16,48 +16,51 @@
       </ul>
     </nav>
 
-    <h1>Airlines</h1>
-    <form action="#" method="get">
-      <label for="text">Search by name:</label>
-      <input type="text" name="searchText">
-      <label for="select">Order by</label>
-      <select name="order">
-        <option value="name">Name</option>
-        <option value="phone">Phone</option>
-        <option value="updated">Last Updated</option>
-      </select>
-      <input type="submit" name="submit" value="Submit">
-    </form>
+    <div class="content">
+      <h1>Airlines</h1>
+      <form action="#" method="get">
+        <label for="text">Search by name:</label>
+        <input type="text" name="searchText">
+        <label for="select">Order by</label>
+        <select name="order">
+          <option value="name">Name</option>
+          <option value="phone">Phone</option>
+          <option value="updated">Last Updated</option>
+        </select>
+        <input type="submit" name="submit" value="Submit">
+      </form>
 
-    <table>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Phone no.</th>
-      <th>Last Updated</th>
-      <tr>
-        <td>Stub Airlines</td>
-        <td>stub@stubairlines.com</td>
-        <td>+1 831 202 2020</td>
-        <td>01/01/15</td>
-      </tr>
-      <tr>
-        <td>Stub Airlines</td>
-        <td>stub@stubairlines.com</td>
-        <td>+1 831 202 2020</td>
-        <td>01/01/15</td>
-      </tr>
-      <tr>
-        <td>Stub Airlines</td>
-        <td>stub@stubairlines.com</td>
-        <td>+1 831 202 2020</td>
-        <td>01/01/15</td>
-      </tr>
-      <tr>
-        <td>Stub Airlines</td>
-        <td>stub@stubairlines.com</td>
-        <td>+1 831 202 2020</td>
-        <td>01/01/15</td>
-      </tr>
-    </table>
+      <table>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Phone no.</th>
+        <th>Last Updated</th>
+        <tr>
+          <td>Stub Airlines</td>
+          <td>stub@stubairlines.com</td>
+          <td>+1 831 202 2020</td>
+          <td>01/01/15</td>
+        </tr>
+        <tr>
+          <td>Stub Airlines</td>
+          <td>stub@stubairlines.com</td>
+          <td>+1 831 202 2020</td>
+          <td>01/01/15</td>
+        </tr>
+        <tr>
+          <td>Stub Airlines</td>
+          <td>stub@stubairlines.com</td>
+          <td>+1 831 202 2020</td>
+          <td>01/01/15</td>
+        </tr>
+        <tr>
+          <td>Stub Airlines</td>
+          <td>stub@stubairlines.com</td>
+          <td>+1 831 202 2020</td>
+          <td>01/01/15</td>
+        </tr>
+      </table>
+    </div>
+
   </body>
 </html>
