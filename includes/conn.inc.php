@@ -1,6 +1,6 @@
 <?php
 
-function createSqlConn() {
+function createMySqlConn() {
 	$db_user = '';
 	$db_pass = '';
 	$db_dsn = 'mysql:host=localhost;dbname=';
