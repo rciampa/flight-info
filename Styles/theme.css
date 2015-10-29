@@ -1,3 +1,32 @@
-body{
-
+html{
+  margin: 0 0;
 }
+body{
+  margin: 0 0;
+}
+/*Navigation bar*/
+  nav{
+    background-color: red;
+    color: white;
+    height: 50px;
+  }
+
+  /*Displays all elements inside nav on single line*/
+  nav h3, nav ul li{
+    display: inline;
+  }
+
+  /*Centers vertical alignment of header*/
+  nav h3{
+    line-height: 50px;
+  }
+
+  /*pulls navigation on to hand side*/
+  nav ul{
+    float: right;
+  }
+
+  /*Highlights current page*/
+  nav a.active{
+    /*make bold/underlne/change color .etc*/
+  }
