@@ -133,7 +133,7 @@ INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35A', '3');
 INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35B', '3');
 
 
-CREATE TABLE IF NOT EXISTS `mydb`.`flight` (
+CREATE TABLE IF NOT EXISTS `flight` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Row id in table',
   `number` VARCHAR(11) NULL COMMENT 'Flight number for this route',
   `airlineId` VARCHAR(27) NULL COMMENT 'The airline id from the airline table',
