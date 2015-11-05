@@ -144,9 +144,9 @@ CREATE TABLE IF NOT EXISTS `flight` (
   `airlineId` VARCHAR(27) NULL COMMENT 'The airline id from the airline table',
   `aircraftNnumber` VARCHAR(10) NULL COMMENT 'The aircraft id from the aircraft table',
   `departurePort` VARCHAR(5) NULL COMMENT 'The airport of departure',
-  `arivalPort` VARCHAR(5) NULL COMMENT 'Airport of arival',
+  `arrivalPort` VARCHAR(5) NULL COMMENT 'Airport of arival',
   `departureTime` DATETIME NULL COMMENT 'Time of departure',
-  `arivalTime` DATETIME NULL COMMENT 'Time of arival',
+  `arrivalTime` DATETIME NULL COMMENT 'Time of arival',
   `updated` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
