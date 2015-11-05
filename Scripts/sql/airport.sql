@@ -42,7 +42,12 @@ INSERT INTO `passenger` (`first`, `last`, `dob`, `phone`, `email`) VALUES ('Laur
 INSERT INTO `passenger` (`first`, `last`, `dob`, `phone`, `email`) VALUES ('Anne', 'Dodsworth', '7/2/1969', '626-698-2358', 'doda@gmail.com');
 INSERT INTO `passenger` (`first`, `last`, `dob`, `phone`, `email`) VALUES ('Adam', 'West', '3/9/1991', '831-698-5897', 'awest@mindspring.com');
 
-
+CREATE TABLE IF NOT EXISTS `passengerFlights` (
+  `passengerId` INT NOT NULL,
+  `flightId` INT NOT NULL,
+  `updated` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`passengerId`, `flightId`))
+ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `aircraft` (
   `nNumber` VARCHAR(10) NOT NULL COMMENT 'Aircraft tail number',
