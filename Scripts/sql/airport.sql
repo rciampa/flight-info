@@ -152,3 +152,10 @@ CREATE TABLE IF NOT EXISTS `flight` (
 ENGINE = InnoDB;
 
 INSERT INTO `flight` (`id`, `number`, `airlineId`, `aircraftNnumber`, `departurePort`, `arivalPort`, `departureTime`, `arivalTime`, `updated`) VALUES (NULL, '235C', 'American Airlines', 'N03991', 'LAX', 'KIN', '2015-11-10 00:30:00', '2015-11-10 01:00:00', NULL);
+
+CREATE TABLE IF NOT EXISTS host`flightGates` (
+  `flightId` INT NOT NULL,
+  `gateId` VARCHAR(8) NOT NULL,
+  PRIMARY KEY (`flightId`, `gateId`))
+ENGINE = InnoDB;
+
