@@ -133,7 +133,7 @@ INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35A', '3');
 INSERT INTO `gate` (`gate`, `terminal`) VALUES ('35B', '3');
 
 
-CREATE TABLE IF NOT EXISTS `flight` (
+CREATE TABLE IF NOT EXISTS `mydb`.`flight` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Row id in table',
   `number` VARCHAR(11) NULL COMMENT 'Flight number for this route',
   `airlineId` VARCHAR(27) NULL COMMENT 'The airline id from the airline table',
@@ -143,12 +143,7 @@ CREATE TABLE IF NOT EXISTS `flight` (
   `departureTime` DATETIME NULL COMMENT 'Time of departure',
   `arivalTime` DATETIME NULL COMMENT 'Time of arival',
   `updated` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  INDEX `fk_flight_aircraft1_idx` (`aircraftNnumber` ASC),
-  CONSTRAINT `fk_flight_aircraft1`
-    FOREIGN KEY (`aircraftNnumber`)
-    REFERENCES `mydb`.`aircraft` (`nNumber`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `flight` (`id`, `number`, `airlineId`, `aircraftNnumber`, `departurePort`, `arivalPort`, `departureTime`, `arivalTime`, `updated`) VALUES (NULL, '235C', 'American Airlines', 'N03991', 'LAX', 'KIN', '2015-11-10 00:30:00', '2015-11-10 01:00:00', NULL);
