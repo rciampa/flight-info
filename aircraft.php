@@ -10,13 +10,13 @@ include "includes/genericDataAccess.inc.php";
   <link rel="stylesheet" href="Styles/theme.css" media="screen" charset="utf-8">
 </head>
 <body>
-  <nav>
+ <nav>
     <h3>Aviation Info</h3>
     <ul>
-      <a href="index.php" ><li>Airlines</li></a>
-      <a href="#" class="active"><li>Passengers</li></a>
-      <a href="aircraft.php"><li>Aircraft</li></a>
-      <a href="gates.php"><li>Gates</li></a>
+   <li><a href="#" class="active">Airlines</a></li>
+   <li><a href="passengers.php">Passengers</a></li>
+   <li><a href="aircraft.php">Aircraft</a></li>
+   <li><a href="gates.php">Gates</a></li>
     </ul>
   </nav>
 
