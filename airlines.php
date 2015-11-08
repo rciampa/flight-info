@@ -10,36 +10,27 @@ include "includes/genericDataAccess.inc.php";
   <link rel="stylesheet" href="Styles/theme.css" media="screen" charset="utf-8">
 </head>
 <body>
- <nav>
+  <nav>
     <h3>Aviation Info</h3>
     <ul>
       <a href="index.php" ><li>Day Statistics</li></a>
-      <a href="airlines.php" ><li>Airlines</li></a>
+      <a href="#" class="active"><li>Airlines</li></a>
       <a href="passengers.php"><li>Passengers</li></a>
-      <a href="#" class="active"><li>Aircraft</li></a>
+      <a href="aircraft.php"><li>Aircraft</li></a>
+      <a href="gates.php"><li>Gates</li></a>
     </ul>
   </nav>
 
   <div class="content">
     <h1>Airlines</h1>
     <form action="#" method="get">
-      <label for="text">Search for:</label>
+      <label for="text">Search by name:</label>
       <input type="text" name="searchText">
-
-      <label for="select">in</label>
-      <select name="searchBy">
-        <option value="nNumber">Number</option>
-        <option value="make">Make</option>
-        <option value="model">Model</option>
-        <option value="airlineId">Owner</option>
-      </select>
-
       <label for="select">Order by</label>
       <select name="order">
-        <option value="nNumber">Number</option>
-        <option value="make">Make</option>
-        <option value="model">Model</option>
-        <option value="airlineId">Owner</option>
+        <option value="name">Name</option>
+        <option value="phone">Phone</option>
+        <option value="updated">Last Updated</option>
       </select>
       <input type="submit" name="submit" value="Submit">
       <input type="submit" name="reset" value="Reset">
@@ -50,48 +41,36 @@ include "includes/genericDataAccess.inc.php";
       if(isset($_GET['reset'])){
         unset($_GET);
       }
-
       $searchParams = array();
-      $query = "SELECT * FROM aircraft";
+      $query = "SELECT * FROM airline";
 
-      // Search by text
       if(isset($_GET['searchText']) && $_GET['searchText'] != NULL){
-        $field = $_GET['searchBy'];
-
-        // using $field IS NOT SAFE... :field not working. -- fix
-        $query .= " WHERE LCASE($field) = LCASE(:value)";
-        $searchParams[':value'] = $_GET['searchText'];
-        // $searchParams[':col'] = $_GET['searchBy'];
+        $query .= " WHERE LCASE(SUBSTR(name, 1, CHAR_LENGTH(:name))) = LCASE(:name)";
+        $searchParams[':name'] = $_GET['searchText'];
       }
 
-      // Set order -- Not working
       if(isset($_GET['order'])){
         $query .= " ORDER BY :order";
         $searchParams[':order'] = $_GET['order'];
       }
-
-      // // Debug
-      // echo "DEBUG ------- <br> QUERY: " . $query . "<br>";
-      // print_r($searchParams);
-      // echo "<br>---------";
 
       $results = fetchAllRecords($query, $searchParams);
 
       // If query produces results
       if(isset($results[0])){
         ?>
-        <th>Number</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Owner</th>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Phone no.</th>
+        <th>Last Updated</th>
 
         <?php
         //Print results
         foreach($results as $row){
-          echo "<tr><td>" . $row['nNumber'] .
-          "</td><td>" . $row['make'] .
-          "</td><td>" . $row['model'] .
-          "</td><td>" . $row['airlineId'] .
+          echo "<tr><td>" . $row['name'] .
+          "</td><td>" . $row['website'] .
+          "</td><td>" . $row['phone'] .
+          "</td><td>" . $row['updated'] .
           "</td></tr>";
         }
       }else{

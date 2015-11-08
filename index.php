@@ -22,7 +22,6 @@ function addScript(&$hasWhere, &$query){
   <nav>
     <h3>Aviation Info</h3>
     <ul>
-      <!-- FIX NAV -->
       <a href="#" class="active"><li>Day Statistics</li></a>
       <a href="airlines.php" ><li>Airlines</li></a>
       <a href="passengers.php"><li>Passengers</li></a>
