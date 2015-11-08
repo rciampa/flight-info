@@ -8,12 +8,15 @@ include "includes/genericDataAccess.inc.php";
   <meta charset="utf-8">
   <title>Airlines</title>
   <link rel="stylesheet" href="Styles/theme.css" media="screen" charset="utf-8">
+  <script src="Scripts/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+  <script src="Scripts/js/passenger.js" type="text/javascript"></script>
 </head>
 <body>
   <nav>
     <h3>Aviation Info</h3>
     <ul>
-      <a href="index.php" ><li>Airlines</li></a>
+      <a href="index.php"><li>Day Statistics</li></a>
+      <a href="airlines.php" ><li>Airlines</li></a>
       <a href="#" class="active"><li>Passengers</li></a>
       <a href="aircraft.php"><li>Aircraft</li></a>
       <a href="gates.php"><li>Gates</li></a>
@@ -21,14 +24,14 @@ include "includes/genericDataAccess.inc.php";
   </nav>
 
   <div class="content">
-    <h1>Airlines</h1>
+    <h1>Passengers</h1>
     <form action="#" method="get">
       <label for="text">Search for:</label>
       <input type="text" name="searchText">
 
       <label for="select">in</label>
       <select name="searchBy">
-        <option value="id">ID</option>
+        <option value="passengerId">ID</option>
         <option value="first">First Name</option>
         <option value="last">Last Name</option>
       </select>
@@ -41,10 +44,14 @@ include "includes/genericDataAccess.inc.php";
         <option value="updated">Updated</option>
       </select>
       <input type="submit" name="submit" value="Submit">
+      <input type="submit" name="reset" value="Reset">
     </form>
 
-    <table>
+    <table id="passengers">
       <?php
+      if(isset($_GET['reset'])){
+        unset($_GET);
+      }
       $searchParams = array();
       $query = "SELECT * FROM passenger";
 
@@ -63,11 +70,11 @@ include "includes/genericDataAccess.inc.php";
         $query .= " ORDER BY :order";
         $searchParams[':order'] = $_GET['order'];
       }
-
-      // Debug
-      echo "DEBUG ------- <br> QUERY: " . $query . "<br>";
-      print_r($searchParams);
-      echo "<br>---------";
+      //
+      // // Debug
+      // echo "DEBUG ------- <br> QUERY: " . $query . "<br>";
+      // print_r($searchParams);
+      // echo "<br>---------";
 
       $results = fetchAllRecords($query, $searchParams);
 
@@ -80,17 +87,24 @@ include "includes/genericDataAccess.inc.php";
         <th>Date of Birth</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>Scheduled Flights</th>
         <th>Updated</th>
 
         <?php
         //Print results
         foreach($results as $row){
-          echo "<tr><td>" . $row['id'] .
-          "</td><td>" . $row['first'] .
-          "</td><td>" . $row['last'] .
+          $query = "SELECT count(*) FROM passengerFlights
+          WHERE passengerId = " . $row['passengerId'];
+
+          $flightCount = fetchAllRecords($query);
+
+          echo "<tr><td class='passengerId'>" . $row['passengerId'] .
+          "</td><td class='firstName'>" . $row['first'] .
+          "</td><td class='lastName'>" . $row['last'] .
           "</td><td>" . $row['dob'] .
           "</td><td>" . $row['phone'] .
           "</td><td>" . $row['email'] .
+          "</td><td>" . $flightCount[0]['count(*)'] .
           "</td><td>" . $row['updated'] .
           "</td></tr>";
         }
@@ -99,6 +113,10 @@ include "includes/genericDataAccess.inc.php";
       }
       ?>
     </table>
+
+    <div id="ajaxResult">
+
+    </div>
   </div>
 
 </body>
