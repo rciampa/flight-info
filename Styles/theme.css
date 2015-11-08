@@ -1,76 +1,71 @@
-body {
-	background-image: url("http://hosting.otterlabs.org/espinozasusanv/CST_336_FALL_15/group/img/background.jpg"); 
-  	}
+body, html{
+	padding: 0;
+	margin: 0;
+	background-image: url("http://hosting.otterlabs.org/espinozasusanv/CST_336_FALL_15/group/img/background.jpg");
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+/*Navigation bar*/
+  nav{
+		padding: 1% 5%;
+		background-color: rgba(255,255,255, 0.4);
+    color: white;
+		height: 30px;
+  }
+
+  /*Displays all elements inside nav on single line*/
+  nav h3, nav ul, nav ul li{
+    display: inline;
+  }
+
+  /*Centers vertical alignment of header*/
+	nav h3{
+		float: left;
+		margin: 0;
+		font-size: 30px;
+		color: #066;
+	}
+
+  /*pulls navigation on to hand side*/
+  nav ul{
+		margin: 0;
+    float: right;
+  }
+
+  /*Highlights current page*/
+  nav a.active{
+		color: #222;
+	}
+
+	/*Link color*/
+	nav a{
+		text-decoration: none;
+		color: #777;
+
+		margin-left: 0.5em;
+		font-size: 25px;
+	}
+
+	nav a:hover{
+		color: #ccc;
+	}
+
 .content {
 	padding: 20px;
-	height: 450px;
-	width: 700px;
 	background-color: #E1EFEF;
-	position: absolute;
-	left: 400px;
-	top: 175px;
-	z-index: 0;
-	line-height: 22px;
-}
-nav ul ul {
-	display: none;
+	margin: 2% 10%;
 }
 
-nav ul li:hover > ul {
-		display: block;
-	}  
-nav ul {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	line-height: .05em;
-	background: #348899; 
-	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
-	padding: 0 20px;
-	border-radius: 10px;  
-	list-style: none;
-	position: absolute;
-	z-index: 1;
-	left: 450px;
+table{
+	margin: 20px auto;
+	text-align: center;
+	border-collapse: collapse;
 }
-  
- nav ul li {
 
-	float: left;
-	
+table, td, th {
+    border: 1px solid black;
 }
-nav ul li:hover {
-		background: grey;
-	}
-nav ul li:hover a {
-			color: #fff;
-		}
-	
-nav ul li a {
-		display: block; 
-		padding: 25px 40px;
-		color: white;
-		text-decoration: none;
-	}    
-nav ul ul {
-	background: #FFCF85; 
-	border-radius: 0px; 
-	padding: 0;
-	position: absolute; 
-	top: 100%;
+
+td{
+	padding: 1em;
 }
-nav ul ul li {
-		float: none; 
-		position: relative;
-	}
-nav ul ul li a {
-			padding: 15px 40px;
-			color: #fff;
-		}	
-nav ul ul li a:hover {
-				background: #95ccba;
-			}
-			
-h3 {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 45px;
-	margin: 0px;
-	color: #066;

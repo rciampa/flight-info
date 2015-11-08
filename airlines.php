@@ -17,7 +17,6 @@ include "includes/genericDataAccess.inc.php";
       <a href="#" class="active"><li>Airlines</li></a>
       <a href="passengers.php"><li>Passengers</li></a>
       <a href="aircraft.php"><li>Aircraft</li></a>
-      <a href="gates.php"><li>Gates</li></a>
     </ul>
   </nav>
 
