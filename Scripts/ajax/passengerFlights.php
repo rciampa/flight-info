@@ -6,11 +6,11 @@
   WHERE passengerId = :id ";
   $params[':id'] = $_GET['id'];
 
-  $result = fetchAllRecords($query, $params);
-  $current = current($result);
+  $results = fetchAllRecords($query, $params);
+  //$current = current($result);
 
 
-  if(isset($result[0])){
+  if(isset($results[0])){
     echo "<table>
     <th>Flight ID</th>
     <th>Number</th>
@@ -23,11 +23,15 @@
     <th>Updated</th>
     <tr>
     ";
-    foreach($result[0] as $r => $value){
+
+  foreach($results as $result){
+    echo "<tr>";
+    foreach($result as $r => $value){
       echo "<td>" . $value . "</td>";
       // echo "<tr><td>" . $r['flightId'] .
       // "</td><td>" . $r['updated'] . "</td></tr>";
     }
-    echo "</tr></table>";
+    echo "</tr>";
   }
+}
 ?>
