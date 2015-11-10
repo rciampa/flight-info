@@ -54,8 +54,8 @@ function addScript(&$hasWhere, &$query){
       WHERE substring(departureTime, 1, 10) = :departDay";
 
       if(isset($_GET['order'])){
-        $query .= " ORDER BY :order";
-        $searchParams[':order'] = $_GET['order'];
+        $query .= " ORDER BY " . $_GET['order'];
+        // $searchParams[':order'] = $_GET['order'];
       }
 
       $searchParams[':departDay'] = $flightDay;

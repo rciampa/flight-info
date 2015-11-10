@@ -6,7 +6,7 @@ include "includes/genericDataAccess.inc.php";
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Airlines</title>
+  <title>Aircraft</title>
   <link rel="stylesheet" href="Styles/theme.css" media="screen" charset="utf-8">
 </head>
 <body>
@@ -21,7 +21,7 @@ include "includes/genericDataAccess.inc.php";
   </nav>
 
   <div class="content">
-    <h1>Airlines</h1>
+    <h1>Aircraft</h1>
     <form action="#" method="get">
       <label for="text">Search for:</label>
       <input type="text" name="searchText">
@@ -61,13 +61,13 @@ include "includes/genericDataAccess.inc.php";
         // using $field IS NOT SAFE... :field not working. -- fix
         $query .= " WHERE LCASE($field) = LCASE(:value)";
         $searchParams[':value'] = $_GET['searchText'];
-        // $searchParams[':col'] = $_GET['searchBy'];
       }
 
-      // Set order -- Not working
+      // Set order -- params not working
       if(isset($_GET['order'])){
-        $query .= " ORDER BY :order";
-        $searchParams[':order'] = $_GET['order'];
+        $query .= " ORDER BY " . $_GET['order'];
+
+        // $searchParams[':order'] = $_GET['order'];
       }
 
       // // Debug

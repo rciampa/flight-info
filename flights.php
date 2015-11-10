@@ -15,7 +15,7 @@ function addScript(&$hasWhere, &$query){
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Airlines</title>
+  <title>Flights</title>
   <link rel="stylesheet" href="Styles/theme.css" media="screen" charset="utf-8">
 </head>
 <body>
